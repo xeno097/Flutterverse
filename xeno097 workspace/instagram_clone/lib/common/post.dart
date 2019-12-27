@@ -13,12 +13,14 @@ class _PostState extends State<Post> {
   int _likes = 0;
   List<String> comments;
   bool _liked = false;
+  String _account_name = '';
 
   @override
   void initState() {
     super.initState();
     this._likes = widget.postData['likes'];
     this.comments = widget.postData['comments'];
+    this._account_name = widget.postData['account_name'];
   }
 
   @override
@@ -32,15 +34,17 @@ class _PostState extends State<Post> {
                 padding: const EdgeInsets.all(8.0),
                 child: CircleAvatar(),
               ),
-              Expanded(child: Text('profile_name')),
+              Expanded(child: Text('${this._account_name}')),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Icon(Icons.tune),
               )
             ],
           ),
-          Image(
+          FadeInImage(
             image: NetworkImage(widget.postData['url']),
+            placeholder: AssetImage('assets/loading.gif'),
+            fadeInDuration: Duration(milliseconds: 1000),
           ),
           Row(
             children: <Widget>[

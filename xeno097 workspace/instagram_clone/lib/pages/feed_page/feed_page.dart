@@ -6,6 +6,7 @@ class FeedPage extends StatelessWidget {
     {
       'id': 1,
       'likes': 1497,
+      'account_name': 'Helados Bon',
       'url':
           'https://s3.amazonaws.com/cdn.restaurantes.conectate.com.do/wp-content/uploads/2018/03/22192304/heladosbon2.jpg',
       'comments': ['blslakala', 'vlskskkdskas']
@@ -13,6 +14,7 @@ class FeedPage extends StatelessWidget {
     {
       'id': 2,
       'likes': 5302,
+      'account_name': 'Valentino',
       'url': 'https://pbs.twimg.com/media/B0gAlkzCcAAOi6Y.jpg',
       'comments': ['blslakala', 'vlskskkdskas']
     }
