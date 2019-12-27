@@ -11,7 +11,7 @@ class Post extends StatefulWidget {
 
 class _PostState extends State<Post> {
   int _likes = 0;
-  List<String> comments;
+  List<String> _comments;
   bool _liked = false;
   String _account_name = '';
 
@@ -19,7 +19,8 @@ class _PostState extends State<Post> {
   void initState() {
     super.initState();
     this._likes = widget.postData['likes'];
-    this.comments = widget.postData['comments'];
+    this._comments = widget.postData['comments'];
+    print(this._comments.length);
     this._account_name = widget.postData['account_name'];
   }
 
@@ -83,6 +84,23 @@ class _PostState extends State<Post> {
                 ? Text(
                     '${this._likes} likes',
                     style: TextStyle(fontWeight: FontWeight.bold),
+                  )
+                : null,
+          ),
+          Container(
+              padding: EdgeInsets.all(8.0),
+              alignment: Alignment.topLeft,
+              child: Text(
+                '${this._account_name}',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              )),
+          Container(
+            padding: EdgeInsets.only(left: 8.0),
+            alignment: Alignment.topLeft,
+            child: this._comments.length > 0
+                ? Text(
+                    'View all ${this._comments.length} comments',
+                    style: TextStyle(color: Colors.grey),
                   )
                 : null,
           ),
