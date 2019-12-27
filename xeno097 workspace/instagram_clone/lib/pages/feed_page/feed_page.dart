@@ -24,22 +24,34 @@ class FeedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.camera_alt),
+            child: Icon(
+              Icons.camera_alt,
+            ),
           ),
           Expanded(
             child: Center(
               child: Text(
                 'Instagram Clone',
-                style: TextStyle(fontSize: 24.0),
+                style: TextStyle(
+                  fontSize: 24.0,
+                  color: Colors.black,
+                ),
+                textAlign: TextAlign.left,
               ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.message),
+            child: Icon(
+              Icons.message,
+            ),
           )
         ],
       ),
