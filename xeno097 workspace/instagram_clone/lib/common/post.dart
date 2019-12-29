@@ -29,6 +29,7 @@ class _PostState extends State<Post> {
     return Container(
       child: Column(
         children: <Widget>[
+          //Top post (avtar image, account name)
           Row(
             children: <Widget>[
               Padding(
@@ -42,6 +43,7 @@ class _PostState extends State<Post> {
               )
             ],
           ),
+
           //Post Image
           GestureDetector(
             child: FadeInImage(
@@ -51,6 +53,7 @@ class _PostState extends State<Post> {
             ),
             onDoubleTap: _likePost,
           ),
+
           //Post actions (like, comment, send)
           Row(
             children: <Widget>[
@@ -73,6 +76,8 @@ class _PostState extends State<Post> {
               ),
             ],
           ),
+
+          // Post like number
           Container(
             padding: EdgeInsets.only(left: 8.0),
             alignment: Alignment.topLeft,
@@ -83,6 +88,10 @@ class _PostState extends State<Post> {
                   )
                 : null,
           ),
+
+          //Account name and post description
+
+          //TODO: add post description
           Container(
               padding: EdgeInsets.all(8.0),
               alignment: Alignment.topLeft,
@@ -90,6 +99,8 @@ class _PostState extends State<Post> {
                 '${this._accountName}',
                 style: TextStyle(fontWeight: FontWeight.bold),
               )),
+
+          // Comments section
           Container(
             padding: EdgeInsets.only(left: 8.0),
             alignment: Alignment.topLeft,
