@@ -42,37 +42,21 @@ class _PostState extends State<Post> {
               )
             ],
           ),
+          //Post Image
           GestureDetector(
             child: FadeInImage(
               image: NetworkImage(widget.postData['url']),
               placeholder: AssetImage('assets/loading.gif'),
               fadeInDuration: Duration(milliseconds: 1000),
             ),
-            onDoubleTap: () {
-              if (this._liked) {
-                this._likes--;
-                this._liked = false;
-              } else {
-                this._likes++;
-                this._liked = true;
-              }
-              setState(() {});
-            },
+            onDoubleTap: _likePost,
           ),
+          //Post actions (like, comment, send)
           Row(
             children: <Widget>[
               IconButton(
                 icon: Icon(_liked ? Icons.favorite : Icons.favorite_border),
-                onPressed: () {
-                  if (this._liked) {
-                    this._likes--;
-                    this._liked = false;
-                  } else {
-                    this._likes++;
-                    this._liked = true;
-                  }
-                  setState(() {});
-                },
+                onPressed: _likePost,
               ),
               IconButton(
                 icon: Icon(Icons.mode_comment),
@@ -131,5 +115,16 @@ class _PostState extends State<Post> {
         ],
       ),
     );
+  }
+
+  void _likePost() {
+    if (this._liked) {
+      this._likes--;
+      this._liked = false;
+    } else {
+      this._likes++;
+      this._liked = true;
+    }
+    setState(() {});
   }
 }
