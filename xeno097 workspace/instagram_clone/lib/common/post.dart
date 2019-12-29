@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/common/comments_page.dart';
 
 class Post extends StatefulWidget {
   final Map postData;
@@ -13,7 +14,7 @@ class _PostState extends State<Post> {
   int _likes = 0;
   List<String> _comments;
   bool _liked = false;
-  String _account_name = '';
+  String _accountName = '';
 
   @override
   void initState() {
@@ -21,7 +22,7 @@ class _PostState extends State<Post> {
     this._likes = widget.postData['likes'];
     this._comments = widget.postData['comments'];
     print(this._comments.length);
-    this._account_name = widget.postData['account_name'];
+    this._accountName = widget.postData['account_name'];
   }
 
   @override
@@ -35,7 +36,7 @@ class _PostState extends State<Post> {
                 padding: const EdgeInsets.all(8.0),
                 child: CircleAvatar(),
               ),
-              Expanded(child: Text('${this._account_name}')),
+              Expanded(child: Text('${this._accountName}')),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Icon(Icons.tune),
@@ -91,16 +92,23 @@ class _PostState extends State<Post> {
               padding: EdgeInsets.all(8.0),
               alignment: Alignment.topLeft,
               child: Text(
-                '${this._account_name}',
+                '${this._accountName}',
                 style: TextStyle(fontWeight: FontWeight.bold),
               )),
           Container(
             padding: EdgeInsets.only(left: 8.0),
             alignment: Alignment.topLeft,
             child: this._comments.length > 0
-                ? Text(
-                    'View all ${this._comments.length} comments',
-                    style: TextStyle(color: Colors.grey),
+                ? GestureDetector(
+                    child: Text(
+                      'View all ${this._comments.length} comments',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    onTap: () {
+                      final commentsPage = MaterialPageRoute(
+                          builder: (context) => CommentsPage(this._comments));
+                      Navigator.push(context, commentsPage);
+                    },
                   )
                 : null,
           ),

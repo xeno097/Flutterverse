@@ -36,14 +36,14 @@ class FeedPage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Center(
+            child: Container(
+              padding: EdgeInsets.only(top: 13.0),
               child: Text(
                 'Instagram Clone',
                 style: TextStyle(
                   fontSize: 24.0,
                   color: Colors.black,
                 ),
-                textAlign: TextAlign.left,
               ),
             ),
           ),
