@@ -42,10 +42,22 @@ class _PostState extends State<Post> {
               )
             ],
           ),
-          FadeInImage(
-            image: NetworkImage(widget.postData['url']),
-            placeholder: AssetImage('assets/loading.gif'),
-            fadeInDuration: Duration(milliseconds: 1000),
+          GestureDetector(
+            child: FadeInImage(
+              image: NetworkImage(widget.postData['url']),
+              placeholder: AssetImage('assets/loading.gif'),
+              fadeInDuration: Duration(milliseconds: 1000),
+            ),
+            onDoubleTap: () {
+              if (this._liked) {
+                this._likes--;
+                this._liked = false;
+              } else {
+                this._likes++;
+                this._liked = true;
+              }
+              setState(() {});
+            },
           ),
           Row(
             children: <Widget>[
