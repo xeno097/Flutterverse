@@ -44,7 +44,6 @@ class HomePageState extends State<StatefulWidget> {
   _indexSetter(int index) {
     setState(() {
       this._index = index;
-      print(index);
     });
   }
 }

@@ -21,7 +21,6 @@ class _PostState extends State<Post> {
     super.initState();
     this._likes = widget.postData['likes'];
     this._comments = widget.postData['comments'];
-    print(this._comments.length);
     this._accountName = widget.postData['account_name'];
   }
 
@@ -99,6 +98,8 @@ class _PostState extends State<Post> {
             padding: EdgeInsets.only(left: 8.0),
             alignment: Alignment.topLeft,
             child: this._comments.length > 0
+                //Using gesture detector to route user to the comments
+                //page when tapping on the total number of comments
                 ? GestureDetector(
                     child: Text(
                       'View all ${this._comments.length} comments',
