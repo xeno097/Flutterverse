@@ -63,7 +63,11 @@ class _PostState extends State<Post> {
               ),
               IconButton(
                 icon: Icon(Icons.mode_comment),
-                onPressed: () {},
+                onPressed: () {
+                  final commentsPage = MaterialPageRoute(
+                      builder: (context) => CommentsPage(this._comments, true));
+                  Navigator.push(context, commentsPage);
+                },
               ),
               IconButton(
                 icon: Icon(Icons.send),
@@ -114,7 +118,8 @@ class _PostState extends State<Post> {
                     ),
                     onTap: () {
                       final commentsPage = MaterialPageRoute(
-                          builder: (context) => CommentsPage(this._comments));
+                          builder: (context) =>
+                              CommentsPage(this._comments, false));
                       Navigator.push(context, commentsPage);
                     },
                   )

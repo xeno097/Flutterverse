@@ -14,7 +14,7 @@ class SearchPage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: TextField(),
+        child: Text('search page'),
       ),
     );
   }

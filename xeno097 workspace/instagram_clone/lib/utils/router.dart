@@ -13,6 +13,5 @@ Widget router(int index) {
     NotificationsPage(),
     ProfilePage()
   ];
-
   return pages[index];
 }
