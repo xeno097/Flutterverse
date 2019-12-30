@@ -8,8 +8,8 @@ import 'package:instagram_clone/pages/search_page/search_page.dart';
 Widget router(int index) {
   List<Widget> pages = [
     FeedPage(),
-    AddPage(),
     SearchPage(),
+    AddPage(),
     NotificationsPage(),
     ProfilePage()
   ];
