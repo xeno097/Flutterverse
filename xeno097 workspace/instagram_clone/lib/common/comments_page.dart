@@ -24,7 +24,12 @@ class _CommentsPageState extends State<CommentsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Comments'),
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        title: Text(
+          'Comments',
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: ListView(
         children: _listBuilder(),
