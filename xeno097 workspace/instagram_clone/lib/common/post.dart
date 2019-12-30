@@ -62,13 +62,8 @@ class _PostState extends State<Post> {
                 onPressed: _likePost,
               ),
               IconButton(
-                icon: Icon(Icons.mode_comment),
-                onPressed: () {
-                  final commentsPage = MaterialPageRoute(
-                      builder: (context) => CommentsPage(this._comments, true));
-                  Navigator.push(context, commentsPage);
-                },
-              ),
+                  icon: Icon(Icons.mode_comment),
+                  onPressed: () => _commentPost(true)),
               IconButton(
                 icon: Icon(Icons.send),
                 onPressed: () {},
@@ -116,12 +111,7 @@ class _PostState extends State<Post> {
                       'View all ${this._comments.length} comments',
                       style: TextStyle(color: Colors.grey),
                     ),
-                    onTap: () {
-                      final commentsPage = MaterialPageRoute(
-                          builder: (context) =>
-                              CommentsPage(this._comments, false));
-                      Navigator.push(context, commentsPage);
-                    },
+                    onTap: () => _commentPost(false),
                   )
                 : null,
           ),
@@ -142,5 +132,11 @@ class _PostState extends State<Post> {
       this._liked = true;
     }
     setState(() {});
+  }
+
+  _commentPost(onHover) {
+    final commentsPage = MaterialPageRoute(
+        builder: (context) => CommentsPage(this._comments, onHover));
+    Navigator.push(context, commentsPage);
   }
 }
