@@ -56,13 +56,33 @@ class FeedPage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        children: _contentViewer(),
+        children: _contentViewer(context),
       ),
     );
   }
 
-  List<Widget> _contentViewer() {
+  List<Widget> _contentViewer(BuildContext context) {
     List<Widget> ret = new List();
+
+    ret.add(Container(
+        height: MediaQuery.of(context).size.width / 5,
+        // padding: EdgeInsets.all(8.0),
+        child: ListView(scrollDirection: Axis.horizontal, children: <Widget>[
+          Container(
+            width: MediaQuery.of(context).size.width / 5,
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.account_circle,
+                    size: MediaQuery.of(context).size.width * (2 / 15),
+                  ),
+                  Text('account')
+                ],
+              ),
+            ),
+          ),
+        ])));
 
     for (var i in data) {
       ret.add(Post(postData: i));
